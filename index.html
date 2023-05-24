@@ -17,7 +17,16 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<script src="script.js"></script>
 <link rel="stylesheet" href="./style.css">
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+      (function(){
+          emailjs.init("8g5HMCuk31hxLZMOu");
+      })();
+</script>
 
 </head>
 <body>
@@ -70,6 +79,7 @@
       <iframe width="460" height="300" frameBorder="20" src="https://fatmap.com/adventureid/59665115/hiking?fmid=em"></iframe>
       <iframe width="460" height="300" frameBorder="20" src="https://fatmap.com/adventureid/58981942/cycling?fmid=em"></iframe>
       <iframe width="460" height="300" frameBorder="20" src="https://fatmap.com/adventureid/40872715/gumbur-sar-hike?fmid=em"></iframe> 
+      
     </div>
   </section>
 <!--connect with us /contact-->
@@ -77,38 +87,15 @@
 <section class="slider" id="tab-team">
   <div class="container">
     <p>Have any questions or suggestions? Drop us a message</p>
-    <form onsubmit="SendEmail(); reset();return false;">
+    <form>
     <input type="text" id="name" placeholder="Your Name" required>
     <input type="email" id="email" placeholder="Your Email id" required>
     <input type="text" id="phone" placeholder="Your Phone no." required>
     <textarea id="message" rows="4" placeholder="How can we help you?"></textarea>
-    <button type="submit">Send</button>
+    <button type="submit" onclick="sendMail()">Send</button>
     </form>
 </div>
 </section>
  <!--include footer-->
-
-
-<!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script><script  src="./script.js"></script>
-  <script src="https://smtpjs.com/v3/smtp.js"></script>
-  <script>
-    function SendEmail(){
-      Email.send({
-      Host : "smtp.elasticemail.com",
-      Username : "help@tahseen.tech",
-      Password : "A1C683808836B77253EB9F682A8A3EB2C049",
-      To : 'help@tahseen.tech',
-      From : document.getElementById("email").value,
-      Subject : "New contact Form enquiry",
-      Body : "Name: " + document.getElementById("name").value
-              + "<br> Email: " + document.getElementById("email").value
-              + "<br> Phone no: " + document.getElementById("phone").value
-              + "<br> Message: "+ document.getElementById("message").value
-}).then(
-  message => alert("Message Sent Succesfully")
-);    
-    }
-  </script>
 </body>
 </html>
